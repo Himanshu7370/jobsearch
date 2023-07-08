@@ -5,12 +5,18 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <style>
   .container {
-    margin-top: 150px;
-    width: 300px;
-    background-color: #fff;
+    margin-top: 110px;
+    width: 40%;
+    background-color: wheat;
     padding: 20px;
-    border-radius: 5px;
-    margin: 0 auto;
+    border-radius: 14px ;
+    margin:  auto;
+    margin-bottom: 300px;
+    
+  }
+
+  .container h2{
+    text-align: center;
   }
   
   input[type="text"], input[type="password"] {
@@ -50,7 +56,7 @@
 <body>
   <header>
     <nav>
-      <h1>Recruitment Hack.Com</h1>
+      <h1>RecruitmentHack.Com</h1>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -61,8 +67,9 @@
   </header>
 
   <div class="container">
-    <h2>Login</h2>
+    
     <form id="loginForm">
+      <h2>Login</h2>
       <input type="text" id="username" placeholder="Username" required><br>
       <input type="password" id="password" placeholder="Password" required><br>
       <input type="submit" class="btn" value="Login">
@@ -83,6 +90,7 @@
     const registerForm = document.getElementById('registerForm');
     const registerLink = document.querySelector('.register-link');
     const loginMessage = document.getElementById('loginMessage');
+    
 
 
     registerLink.addEventListener('click', function() {
@@ -94,9 +102,7 @@
       e.preventDefault();
       const newUsername = document.getElementById('newUsername').value;
       const newPassword = document.getElementById('newPassword').value;
-      // Perform registration logic here
-
-       // Check if username already exists in local storage
+     
        const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
       const isExistingUser = registeredUsers.find(user => user.username === newUsername);
       if (isExistingUser) {
@@ -104,22 +110,22 @@
         return;
       }
 
-        // Register new user
+        
         registeredUsers.push({ username: newUsername, password: newPassword });
       localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
 
 
       
-      // Reset form fields
+      
       this.reset();
       alert('Registration successful! Please login with your new credentials.');
       
-      // Show login form
+      
 
       
       registerForm.classList.add('hidden');
       loginForm.classList.remove('hidden');
-   //hjkhh
+   
     });
 
     loginForm.addEventListener('submit', function(e) {
@@ -127,10 +133,10 @@
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
-      // Fetch registered users from local storage
+      
       const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
       
-      // Validate login credentials
+      
       const user = registeredUsers.find(user => user.username === username && user.password === password);
       if (user) {
         loginMessage.textContent = 'Login successful!';

@@ -1,206 +1,113 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>Recruitment - Homepage</title>
+
+    <title>Recruitment - Homepage</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+
+  
   <style>
-    body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
 
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
+    .search{
+        text-align: center;
+        margin: 15px;
+    }
+   
 
-h1 {
-  margin: 0;
-}
+    .search-container {
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-main {
-  padding: 20px;
-}
+    .search-container input[type=text] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      width: 200px;
+    }
 
-.search-section {
-  text-align: center;
-  margin-bottom: 20px;
-}
+    .search-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: #FFF;
+      margin-left: 10px;
+      cursor: pointer;
+    }
 
-.input-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-}
+    .clear-button {
+      background-color: #F44336;
+    }
 
-input[type="text"], select {
-  padding: 10px;
-  font-size: 16px;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: green;
-  color: white;
-}
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
 
-.candidates-section {
-  border-top: 1px solid #333;
-  padding-top: 20px;
-}
+    tr:hover {
+      background-color: #f5f5f5;
+    }
 
-h2 {
-  margin: 0 0 10px;
-}
+    .highlight {
+      background-color: yellow;
+    }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  padding: 5px 0;
-}
-.heading{
-  display: flex;
-  align-items: center;
-  justify-content: center;
- margin-bottom: 15px;
-}
-
+    .download-button {
+      background-color: #2196F3;
+      color: #FFF;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      text-decoration: none;
+      cursor: pointer;
+    }
   </style>
+
+<header>
+    <nav>
+      <h1>RecruitmentHack.Com</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="applicants.html">Applicants</a></li>
+      </ul>
+    </nav>
+  </header>
+
 </head>
-
 <body>
-  
-    <header>
-      <nav>
-        <h1>Recruitment Hack.Com</h1>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="applicants.html">Applicants</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- <h1>Candidate Search</h1> -->
-  
+   <div class="search">
+    <h1>Search Candidates</h1>
 
-    <main>
-      <div class="heading">
-        <h1>Candidate Search</h1>
-      </div>
-      
-      <section class="search-section">
-        <div class="input-group">
-          <input type="text" id="locationInput" placeholder="Location">
-          <select id="roleSelect">
-            <option value="">Select Role</option>
-            <option value="developer">Developer</option>
-            <option value="designer">Designer</option>
-            <option value="data analytics">Data Analytics</option>
-            <option value="data scientist">Data Scientist</option>
-          </select>
-        </div>
-        <button onclick="searchCandidates()">Search</button>
-      </section>
-  
-      <section id="candidatesList" class="candidates-section">
-        <h2>Candidates</h2>
-        <ul id="candidatesUl"></ul>
-      </section>
-    </main>
-  
-    <script>
-      function insertCandidates() {
-        // Replace 'API_ENDPOINT' with the actual API endpoint URL
-        fetch('https://indeed-indeed.p.rapidapi.com/apisearch?publisher=%3CREQUIRED%3E&v=2&format=json&callback=%3CREQUIRED%3E&q=java&l=austin%2C%20tx&sort=%3CREQUIRED%3E&radius=25&st=%3CREQUIRED%3E&jt=%3CREQUIRED%3E&start=%3CREQUIRED%3E&limit=%3CREQUIRED%3E&fromage=%3CREQUIRED%3E&highlight=%3CREQUIRED%3E&filter=%3CREQUIRED%3E&latlong=%3CREQUIRED%3E&co=%3CREQUIRED%3E&chnl=%3CREQUIRED%3E&userip=%3CREQUIRED%3E&useragent=%3CREQUIRED%3E', {
-          headers: {
-            // Add any required headers for the API request
-            
-            'Content-Type': 'application/json',
+   </div> 
+ 
+  <div class="search-container">
+    <input type="text" id="searchLocation" placeholder="Search by location">
+    <input type="text" id="searchJobProfile" placeholder="Search by job profile">
+    <input type="text" id="searchName" placeholder="Search by name">
+    <button onclick="searchCandidates()">Search</button>
+    <button class="clear-button" onclick="clearSearch()">Clear</button>
+  </div>
 
-            // Replace 'API_KEY' with your actual API key if required
-            'X-API-Key': '3b361d51cdmsh0bec73fdca584f9p1f7fe8jsna4b42778a3c8'
-          }
-        })
-          .then(response => response.json())
-          .then(data => {
-            const candidatesUl = document.getElementById('candidatesUl');
-            candidatesUl.innerHTML = '';
-  
-            if (Array.isArray(data)) {
-            data.forEach(candidate => {
-              const li = document.createElement('li');
-              li.textContent = candidate.name;
-              candidatesUl.appendChild(li);
-            });
-          } else {
-            const li = document.createElement('li');
-            li.textContent = 'No candidates found.';
-            candidatesUl.appendChild(li);
-          }
-        })
-          .catch(error => {
-            console.error('Error fetching candidate data:', error);
-          });
-      }
-  
-      function searchCandidates() {
-        const locationInput = document.getElementById('locationInput');
-        const roleSelect = document.getElementById('roleSelect');
-        const candidatesUl = document.getElementById('candidatesUl');
-  
-        candidatesUl.innerHTML = '';
-  
-        const location = locationInput.value.toLowerCase();
-        const role = roleSelect.value.toLowerCase();
-  
-        fetch('https://indeed-indeed.p.rapidapi.com/apisearch?publisher=%3CREQUIRED%3E&v=2&format=json&callback=%3CREQUIRED%3E&q=java&l=austin%2C%20tx&sort=%3CREQUIRED%3E&radius=25&st=%3CREQUIRED%3E&jt=%3CREQUIRED%3E&start=%3CREQUIRED%3E&limit=%3CREQUIRED%3E&fromage=%3CREQUIRED%3E&highlight=%3CREQUIRED%3E&filter=%3CREQUIRED%3E&latlong=%3CREQUIRED%3E&co=%3CREQUIRED%3E&chnl=%3CREQUIRED%3E&userip=%3CREQUIRED%3E&useragent=%3CREQUIRED%3E', {
-          headers: {
-            // Add any required headers for the API request
-            
-            'Content-Type': 'application/json',
+  <table id="candidatesTable">
+    <tr>
+      <th>Name</th>
+      <th>Job Title</th>
+      <th>Location</th>
+      <th></th>
+    </tr>
+  </table>
 
-            // Replace 'API_KEY' with your actual API key if required
-            'X-API-Key': '3b361d51cdmsh0bec73fdca584f9p1f7fe8jsna4b42778a3c8'
-          }
-        })
-          .then(response => response.json())
-          .then(data => {
-            const filteredCandidates = data.candidates.filter(candidate => {
-              const candidateLocation = candidate.location.toLowerCase();
-              const candidateRole = candidate.role.toLowerCase();
-              return (
-                candidateLocation.includes(location) || location === ''
-              ) && (candidateRole === role || role === '');
-            });
-  
-            if (filteredCandidates.length > 0) {
-              filteredCandidates.forEach(candidate => {
-                const li = document.createElement('li');
-                li.textContent = candidate.name;
-                candidatesUl.appendChild(li);
-              });
-            } else {
-              const li = document.createElement('li');
-              li.textContent = 'No candidates found.';
-              candidatesUl.appendChild(li);
-            }
-          })
-          .catch(error => {
-            console.error('Error fetching candidate data:', error);
-          });
-      }
-  
-      insertCandidates();
-    </script>
-  </body>
-  </html>
+  <script src="script.js"></script>
+</body>
+</html>
