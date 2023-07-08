@@ -1,0 +1,179 @@
+/* Add appropriate styles for the landing page */
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3 {
+    margin: 0;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Header */
+  header {
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav h1 {
+    font-size: 24px;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  
+  /* Hero section */
+  #hero {
+    background-color: #f2f2f2;
+    padding: 100px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .hero-content h2 {
+    font-size: 36px;
+  }
+  
+  .hero-content p {
+    margin-top: 20px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 30px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #555;
+  }
+  
+  /* Features section */
+  #features {
+    padding: 80px;
+    text-align: center;
+  }
+  
+  .feature-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+  
+  .feature {
+    flex-basis: 30%;
+  }
+  
+  .feature img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+  
+  .feature h3 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  .feature p {
+    margin-top: 10px;
+  }
+  
+  /* Benefits section */
+  #benefits {
+    background-color: #f2f2f2;
+    padding: 80px;
+    text-align: center;
+  }
+  
+  .benefits-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+  
+  .benefit {
+    flex-basis: 30%;
+  }
+  
+  .benefit img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+  
+  .benefit h3 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  .benefit p {
+    margin-top: 10px;
+  }
+  
+  /* Contact section */
+  #contact {
+    padding: 80px;
+    text-align: center;
+  }
+  
+  form input,
+  form textarea {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 300px;
+  }
+  
+  form button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color:#555;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  

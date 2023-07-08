@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recruitment - Homepage</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+  .container {
+    margin-top: 150px;
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+  
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .btn:hover {
+    background-color: #45a049;
+  }
+  
+  .register-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .hidden {
+    display: none;
+    
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Recruitment Hack.Com</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="applicants.html">Applicants</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <input type="submit" class="btn" value="Login">
+    </form>
+    <p>Don't have an account? <span class="register-link">Register</span></p>
+    
+    <form id="registerForm" class="hidden">
+      <h2>Register</h2>
+      <input type="text" id="newUsername" placeholder="Username" required><br>
+      <input type="password" id="newPassword" placeholder="Password" required><br>
+      <input type="submit" class="btn" value="Register">
+    </form>
+    <div id="loginMessage" class="hidden"></div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const registerLink = document.querySelector('.register-link');
+    const loginMessage = document.getElementById('loginMessage');
+
+
+    registerLink.addEventListener('click', function() {
+      loginForm.classList.add('hidden');
+      registerForm.classList.remove('hidden');
+    });
+
+    registerForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const newUsername = document.getElementById('newUsername').value;
+      const newPassword = document.getElementById('newPassword').value;
+      // Perform registration logic here
+
+       // Check if username already exists in local storage
+       const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+      const isExistingUser = registeredUsers.find(user => user.username === newUsername);
+      if (isExistingUser) {
+        alert('Username already exists! Please choose a different username.');
+        return;
+      }
+
+        // Register new user
+        registeredUsers.push({ username: newUsername, password: newPassword });
+      localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+
+
+      
+      // Reset form fields
+      this.reset();
+      alert('Registration successful! Please login with your new credentials.');
+      
+      // Show login form
+
+      
+      registerForm.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+   
+    });
+
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Fetch registered users from local storage
+      const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+      
+      // Validate login credentials
+      const user = registeredUsers.find(user => user.username === username && user.password === password);
+      if (user) {
+        loginMessage.textContent = 'Login successful!';
+        loginMessage.classList.remove('hidden');
+        loginForm.reset();
+        setTimeout(function() {
+          window.location.href = 'applicants.html';
+        }, 2000);
+      } else {
+        loginMessage.textContent = 'Invalid username or password. Please try again.';
+        loginMessage.classList.remove('hidden');
+      }
+    });
+
+  </script>
+</body>
+</html>
