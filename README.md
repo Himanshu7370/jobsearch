@@ -23,12 +23,16 @@ To get started with RecruitmentHack, follow these steps:
 
 ## Usage
 
-1. Open the app in a web browser by launching the `index.html` file.
-2. Enter search criteria such as location, job profile, and name in the respective input fields.
-3. Click the "Search" button to search for candidates matching the provided criteria.
-4. The candidate results will be displayed in a table below the search form.
-5. If no candidates are found, a "Data not found" message will be displayed.
-6. Click the "Download Resume" button to download a candidate's resume.
+1. Open the app in a web browser by given link.
+2.  If you are a new user, click the "Register" button to create an account.
+3. Fill in the required information in the registration form and submit it.
+4. Once registered, you can log in using your credentials.
+5. After logging in, you will have access to additional features such as saving candidate profiles, managing your saved candidates, and accessing personalized recommendations.
+3. Enter search criteria such as location, job profile, and name in the respective input fields.
+4. Click the "Search" button to search for candidates matching the provided criteria.
+5. The candidate results will be displayed in a table below the search form.
+6. If no candidates are found, a "Data not found" message will be displayed.
+7. Click the "Download Resume" button to download a candidate's resume.
 
 
 ## Contact
