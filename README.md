@@ -12,7 +12,7 @@ open link to visit website- https://requirementshack.netlify.app/
 - Efficient resume management for recruiters.
 - Highlighting of search terms within candidate profiles.
   If no candidates are found, a "Data not found" message will be displayed.
-   Login/register for personalized features
+  Login/register for personalized features.
 
 ## Getting Started
 
