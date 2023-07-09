@@ -11,8 +11,8 @@ open link to visit website- https://requirementshack.netlify.app/
 - In-depth candidate profiles with essential details.
 - Efficient resume management for recruiters.
 - Highlighting of search terms within candidate profiles.
-- Time and cost savings in the recruitment process.
-- Dedicated customer support.
+  If no candidates are found, a "Data not found" message will be displayed.
+   Login/register for personalized features
 
 ## Getting Started
 
